@@ -6,7 +6,7 @@ public class Main {
         scores = new int[]{215, 234, 218, 189, 221, 290};
 
         for (int score : scores) {
-            System.out.print(score + "  ");
+            System.out.print(score + "  "); //sdf
         }
     }
 }
