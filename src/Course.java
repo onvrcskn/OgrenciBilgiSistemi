@@ -1,26 +1,33 @@
+import org.jetbrains.annotations.NotNull;
+
 public class Course {
-    Teacher teacher;
+    Teacher courseTeacher;
     String name;
     String code;
     String prefix;
+    int note;
 
-    Course(String name, String code, String prefix) {
+    public Course(String name, String code, String prefix) {
         this.name = name;
         this.code = code;
         this.prefix = prefix;
-        this.teacher = teacher;
+        this.note = 0;
+    }
 
-    }
-    void addTeacher(Teacher teacher) {
-        if (teacher.branch.equals(this.prefix)) {
-            this.teacher = teacher;
-            System.out.println("Öğretmen başarıyla eklendi.");
-        }
-        else {
-            System.out.println("Öğretmen - Ders uyumsuzluğu ");
+    public void addTeacher(Teacher t) {
+        if (this.prefix.equals(t.branch)) {
+            this.courseTeacher = t;
+            System.out.println("İşlem başarılı");
+        } else {
+            System.out.println(t.name + " Akademisyeni bu dersi veremez.");
         }
     }
-    void printTeacher(Teacher teacher) {
-        System.out.println("Ders Öğretmeni :\t" + this.teacher.name);
+
+    public void printTeacher() {
+        if (courseTeacher != null) {
+            System.out.println(this.name + " dersinin Akademisyeni : " + courseTeacher.name);
+        } else {
+            System.out.println(this.name + " dersine Akademisyen atanmamıştır.");
+        }
     }
 }
